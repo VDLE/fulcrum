@@ -53,9 +53,9 @@ input listener; allow it.
 ### macOS 12+
 Grant two one-time permissions in **System Settings > Privacy & Security**:
 
-1. **Accessibility** for mouse and keyboard event capture. Add your Python
+1. Accessibility for mouse and keyboard event capture. Add your Python
    interpreter, or the Terminal/iTerm running it.
-2. **Screen Recording** for Heat Map and Screen Recording measurements. Same
+2. Screen Recording for Heat Map and Screen Recording measurements. Same
    target.
 
 The tracker prints reminders to stderr on startup. Restart the tracker after
@@ -96,16 +96,16 @@ website will also refuse to start any session with a matching banner.
 
 ## Troubleshooting
 
-**Connection refused on http://127.0.0.1:5001/check_local_tracking_running**
+**Connection refused on http://127.0.0.1:5001/check_local_tracking_running**  
 The tracker isn't running, or its embedded Flask server crashed. Check the
 terminal where you ran `python driver.py`; exceptions in the Flask thread
 are printed there.
 
-**The Begin button doesn't start the trial (browser shows an error banner)**
+**The Begin button doesn't start the trial (browser shows an error banner)**  
 The study's measurement list includes something the participant's platform
 can't do. The exact reason is in the banner. Most often it's a Wayland
 session; see the section above.
 
-**Trial ends but "Saving results..." dialog hangs forever**
+**Trial ends but "Saving results..." dialog hangs forever**  
 You're probably running an older version of the agent. Re-download the
 tracker ZIP from the Fulcrum web app.
