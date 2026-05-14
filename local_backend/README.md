@@ -9,7 +9,7 @@ Python and run the script.
 
 ## Prerequisites
 
-- Python 3.10 to 3.12 (3.12 recommended; 3.14 currently lacks prebuilt wheels
+- Python 3.10 to 3.12 (3.12 recommended; later versions currently lack prebuilt wheels
   for some of the pinned dependencies).
 - A working desktop session. The tool is a GUI app and will not run headless.
 
