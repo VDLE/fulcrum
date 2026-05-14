@@ -1,0 +1,74 @@
+{
+  "title": "Sample Survey",
+  "description": "This is a template with various question types to use",
+  "elements": [
+    {
+      "type": "text",
+      "name": "question1",
+      "title": "Username",
+      "maxLength": 25,
+      "isRequired": true
+    },
+    {
+      "type": "comment",
+      "name": "question2",
+      "title": "What would make you more satisfied with our product?",
+      "rows": 2,
+      "autoGrow": true,
+      "allowResize": false,
+      "isRequired": true
+    },
+    {
+      "type": "text",
+      "name": "question3",
+      "title": "Enter a number from 0 to 100",
+      "inputType": "number",
+      "min": 0,
+      "max": 100,
+      "defaultValue": 0,
+      "isRequired": true
+    },
+    {
+      "type": "dropdown",
+      "name": "question4",
+      "title": "Which is the brand of your car?",
+      "choices": ["Ford", "Vauxhall", "Volkswagen", "Nissan"],
+      "showNoneItem": true,
+      "showOtherItem": true,
+      "isRequired": true
+    },
+    {
+      "type": "tagbox",
+      "name": "question5",
+      "title": "Which countries have you visited within the last three years?",
+      "choices": ["America", "Mexico", "Canada", "Japan"],
+      "isRequired": true
+    },
+    {
+      "type": "boolean",
+      "name": "question6",
+      "title": "Are you 21 or older?",
+      "valueTrue": "Yes",
+      "valueFalse": "No",
+      "isRequired": true
+    },
+    {
+      "type": "checkbox",
+      "name": "question7",
+      "title": "Which is the brand of your car?",
+      "choices": ["Ford", "Vauxhall", "Volkswagen", "Nissan"],
+      "showNoneItem": true,
+      "showOtherItem": true,
+      "showSelectAllItem": true,
+      "isRequired": true
+    },
+    {
+      "type": "rating",
+      "name": "question8",
+      "title": "How satisfied are you with our product?",
+      "minRateDescription": "Not satisfied",
+      "maxRateDescription": "Completely satisfied",
+      "isRequired": true
+    }
+  ]
+}

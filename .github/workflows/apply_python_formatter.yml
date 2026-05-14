@@ -1,0 +1,59 @@
+name: Apply Python Black Formatter
+# WIll only affect python and should not commit if not changes made
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - main
+
+jobs:
+  format_code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Ensure all branches are fetched
+
+      - name: Checkout the PR branch
+        run: |
+          git fetch origin ${{ github.head_ref }}  # Explicitly fetch the PR branch
+          git checkout ${{ github.head_ref }}      # Checkout the PR branch
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install black
+
+      - name: Run Black formatter
+        run: |
+          black .
+
+      - name: Check for changes after Black formatting
+        id: check_changes
+        run: |
+          if git diff --exit-code; then
+            echo "result=No Changes Made" >> $GITHUB_ENV
+          else
+            echo "result=Changes Made" >> $GITHUB_ENV
+          fi
+        continue-on-error: false 
+
+      - name: Commit and push changes if changes detected
+        if: ${{ env.result == 'Changes Made' }}
+        run: |
+          git config --global user.name "sharedhci"
+          git config --global user.email "sharedhci@gmail.com"
+          git add .
+          git commit -m "Apply Black code formatting to: ${{ github.event.pull_request.title }}"
+          git push origin ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.SHARED_HCI_TOKEN }}

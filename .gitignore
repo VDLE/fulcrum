@@ -1,0 +1,56 @@
+# Secrets
+.env
+.env.*
+!.env.example
+server_backend/app/.env
+frontend/src/config.json
+
+# Python build / runtime artifacts
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+flask_session/
+*.log
+
+# Virtualenvs
+venv/
+.venv/
+venv-*/
+env/
+ENV/
+
+# Node / Vite / Cypress build output
+node_modules/
+dist/
+dist-ssr/
+coverage/
+*.tsbuildinfo
+frontend/cypress/videos/
+frontend/cypress/screenshots/
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Session results and other transient data
+*.zip
+generated_data/
+
+# Local planning / context archives (never committed)
+architecture.MD
+.architecture.MD
+.claude/

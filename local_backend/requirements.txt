@@ -1,0 +1,14 @@
+# Runtime dependencies for the Fulcrum tracking tool (local Qt app).
+# Keep this list minimal: anything backend-only (mysqlclient, Flask-Security,
+# gunicorn, SQLAlchemy, pytest, pyinstaller, etc.) does NOT belong here.
+Flask==3.0.3
+Flask-Cors==5.0.0
+PyQt6==6.8.1
+pynput==1.7.7
+mss==10.0.0
+opencv-python==4.10.0.84
+imageio-ffmpeg==0.6.0
+Pillow==11.0.0
+numpy==2.2.0
+pandas==2.2.3
+platformdirs==4.3.6

@@ -1,0 +1,66 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql_database/create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql
+      - ./sql_database/seed_reference_data.sql:/docker-entrypoint-initdb.d/02_seed_reference_data.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build: ./server_backend
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    env_file: .env
+    environment:
+      # Override host values so containers use service names instead of localhost
+      MYSQL_HOST: db
+      REDIS_HOST: redis
+    volumes:
+      - results_data:/app/data/participants_results
+      # Mount the Qt tracking tool source so /api/download_tracking_tool can zip it on demand.
+      - ./local_backend:/app/local_backend:ro
+    ports:
+      - "5004:5004"
+
+  worker:
+    build: ./server_backend
+    command: python worker.py
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    env_file: .env
+    environment:
+      MYSQL_HOST: db
+      REDIS_HOST: redis
+    volumes:
+      - results_data:/app/data/participants_results
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+  redis_data:
+  results_data:

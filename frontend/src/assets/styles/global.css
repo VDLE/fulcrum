@@ -1,0 +1,46 @@
+/* Global gradient background */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* background: linear-gradient(to right, #fefefe, #f8f8f8); */
+  background: linear-gradient(to right, #fefefe, #f8f8f8);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Transparent Vuetify wrappers so gradient shows through */
+.v-application,
+.v-main,
+.v-container {
+  background-color: transparent !important;
+}
+
+/* Reusable surface style for cards, panels, etc. */
+.component-surface {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Dark mode support */
+/* @media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: linear-gradient(to right, #121212, #1e1e1e);
+    color: #eee;
+  }
+
+  .component-surface {
+    background-color: rgba(30, 30, 30, 0.85);
+    color: #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+} */

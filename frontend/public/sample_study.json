@@ -1,0 +1,50 @@
+{
+  "participantSessId": 4,
+  "study_id": "1",
+  "studyName": "Memory and Attention",
+  "studyDescription": "Study on memory retention and focus.",
+  "studyDesignType": "Within",
+  "participantCount": "50",
+  "trials": [
+    {
+      "taskID": 1,
+      "factorID": 1,
+      "startedAt": "2025-03-07 14:56:41"
+    },
+    {
+      "taskID": 1,
+      "factorID": 1,
+      "startedAt": "2025-03-07 14:56:42"
+    },
+    {
+      "taskID": 1,
+      "factorID": 1,
+      "startedAt": "2025-03-07 14:56:43"
+    },
+    {
+      "taskID": 1,
+      "factorID": 1,
+      "startedAt": "2025-03-07 14:56:44"
+    }
+  ],
+  "tasks": {
+    "1": {
+      "measurementOptions": [
+        "Mouse Movement",
+        "Keyboard Inputs",
+        "Mouse Scrolls",
+        "Mouse Clicks"
+      ],
+      "taskDescription": "A test to assess short-term memory retention",
+      "taskDirections": "Perform the task without visual input. Ensure a safe environment.",
+      "taskDuration": "10.000",
+      "taskName": "Memory Test"
+    }
+  },
+  "factors": {
+    "1": {
+      "factorDescription": "Blindfolded",
+      "factorName": "Participants are blindfolded to limit their visual perception."
+    }
+  }
+}
