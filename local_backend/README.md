@@ -105,7 +105,3 @@ are printed there.
 The study's measurement list includes something the participant's platform
 can't do. The exact reason is in the banner. Most often it's a Wayland
 session; see the section above.
-
-**Trial ends but "Saving results..." dialog hangs forever**  
-You're probably running an older version of the agent. Re-download the
-tracker ZIP from the Fulcrum web app.
