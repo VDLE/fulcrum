@@ -26,7 +26,7 @@ Requirements: Docker Engine + the `docker compose` plugin, or Docker Desktop
 on Windows / macOS (with WSL2 enabled on Windows).
 
 ```bash
-git clone https://github.com/zestreito/fulcrum/
+git clone https://github.com/VDLE/fulcrum/
 cd fulcrum
 cp .env.example .env
 # Edit .env and fill in MYSQL_PASSWORD, SECRET_KEY, SECRET_PASSWORD_SALT,
