@@ -1,0 +1,1 @@
+#Routes: GET /api/analytics/<study_id>/stats (JSON) and GET /api/analytics/<study_id>/notebook (download)
