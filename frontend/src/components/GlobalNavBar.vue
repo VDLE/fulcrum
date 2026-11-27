@@ -22,6 +22,11 @@
         prepend-icon="mdi-chart-box-outline"
         title="Data Analytics"
       ></v-list-item>
+      <v-list-item
+        to="/stats"
+        prepend-icon="mdi-calculator"
+        title="Stats Engine"
+      ></v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>

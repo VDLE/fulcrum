@@ -190,6 +190,7 @@ def create_app(testing=False):
 
     # Import analytics surveys blueprint
     from app.routes.analytics_surveys import analytics_surveys_bp
+    from app.routes.analytics_stats import bp as analytics_stats_bp
 
     app.register_blueprint(general_bp)
     app.register_blueprint(studies_bp)
@@ -203,6 +204,7 @@ def create_app(testing=False):
     app.register_blueprint(analytics_bp)
     # Register analytics surveys blueprint
     app.register_blueprint(analytics_surveys_bp)
+    app.register_blueprint(analytics_stats_bp)
 
     # Log that analytics blueprint was registered
     app.logger.info("Analytics API routes registered")
